@@ -48,3 +48,18 @@ const playRound = (userSelection, computerSelection) => {
     return 'wrong input!';
   }
 };
+
+const game = () => {
+  const ROUNDS = 5;
+
+  for (let i = 0; i < ROUNDS; i++) {
+    const userSelection = prompt(
+      'Choose your weapon (rock | paper | scissors)'
+    );
+    const computerSelection = getComputerChoice();
+    const result = playRound(userSelection, computerSelection);
+    console.log(result);
+  }
+};
+
+game();
