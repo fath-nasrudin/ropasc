@@ -64,6 +64,10 @@ const game = () => {
     const userSelection = prompt(
       'Choose your weapon (rock | paper | scissors)'
     );
+    if (!userSelection) {
+      console.log('cancelled');
+      break;
+    }
     const computerSelection = getComputerChoice();
     const result = playRound(userSelection, computerSelection);
     console.log(result);
