@@ -60,6 +60,8 @@ const playRound = (userSelection, computerSelection) => {
 const game = () => {
   const ROUNDS = 5;
 
+  let userScore = 0;
+  let computerScore = 0;
   for (let i = 0; i < ROUNDS; i++) {
     const userSelection = prompt(
       'Choose your weapon (rock | paper | scissors)'
@@ -70,7 +72,23 @@ const game = () => {
     }
     const computerSelection = getComputerChoice();
     const winner = playRound(userSelection, computerSelection);
+
+    if (winner === 'player') userScore += 1;
+    if (winner === 'computer') computerScore += 1;
+
     console.log(generateRoundLog(userSelection, computerSelection, winner));
+    console.log(`
+    Score: [User: ${userScore} || Computer: ${computerScore}]
+    Round: ${i + 1}
+    `);
+  }
+
+  if (userScore > computerScore) {
+    console.log('Congrats! you beat the computer');
+  } else if (computerScore < userScore) {
+    console.log('Unfortunately, you defeated');
+  } else {
+    console.log('Draw. refresh to do rematch');
   }
 };
 
