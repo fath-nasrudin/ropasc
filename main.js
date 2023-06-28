@@ -11,42 +11,50 @@ const getComputerChoice = () => {
   }
 };
 
-const playRound = (userSelection, computerSelection) => {
+const getWinner = (userSelection, computerSelection) => {
   userSelection = userSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
-  let result = null;
+  let winner = null;
 
   if (userSelection === 'rock') {
     if (computerSelection === 'rock') {
-      result = 'tie';
+      winner = 'tie';
     } else if (computerSelection === 'paper') {
-      result = 'lose';
+      winner = 'computer';
     } else {
-      result = 'win';
+      winner = 'player';
     }
   } else if (userSelection === 'paper') {
     if (computerSelection === 'paper') {
-      result = 'tie';
+      winner = 'tie';
     } else if (computerSelection === 'scissors') {
-      result = 'lose';
+      winner = 'computer';
     } else {
-      result = 'win';
+      winner = 'player';
     }
   } else if (userSelection === 'scissors') {
     if (computerSelection === 'scissors') {
-      result = 'tie';
+      winner = 'tie';
     } else if (computerSelection === 'rock') {
-      result = 'lose';
+      winner = 'computer';
     } else {
-      result = 'paper';
+      winner = 'player';
     }
   }
+  return winner;
+};
 
-  if (result) {
-    return `You ${result}! User: ${userSelection} | Computer: ${computerSelection}`;
-  } else {
-    return 'wrong input!';
-  }
+const generateRoundLog = (userSelection, computerSelection, winner) => {
+  if (!winner) return 'Wrong input!';
+  if (winner === 'tie') return 'tie';
+  return `You ${
+    winner === 'player' ? 'win' : 'lose'
+  }! User: ${userSelection} | Computer: ${computerSelection}`;
+};
+
+const playRound = (userSelection, computerSelection) => {
+  const winner = getWinner(userSelection, computerSelection);
+  return generateRoundLog(userSelection, computerSelection, winner);
 };
 
 const game = () => {
