@@ -54,7 +54,7 @@ const generateRoundLog = (userSelection, computerSelection, winner) => {
 
 const playRound = (userSelection, computerSelection) => {
   const winner = getWinner(userSelection, computerSelection);
-  return generateRoundLog(userSelection, computerSelection, winner);
+  return winner;
 };
 
 const game = () => {
@@ -69,8 +69,8 @@ const game = () => {
       break;
     }
     const computerSelection = getComputerChoice();
-    const result = playRound(userSelection, computerSelection);
-    console.log(result);
+    const winner = playRound(userSelection, computerSelection);
+    console.log(generateRoundLog(userSelection, computerSelection, winner));
   }
 };
 
