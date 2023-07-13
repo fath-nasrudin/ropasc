@@ -94,3 +94,17 @@ const consoleController = () => {
     console.log('Draw. refresh to do rematch');
   }
 };
+
+// selection listener
+const buttons = document.querySelectorAll('#selectionButtons > button');
+Array.from(buttons).forEach((button) => {
+  button.addEventListener('click', function (e) {
+    const userSelection = this.value;
+    const computerSelection = getComputerChoice();
+    const winner = getWinner(userSelection, computerSelection);
+
+    // update log
+    // update score
+    // check is the game over?
+  });
+});
