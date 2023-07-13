@@ -6,15 +6,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ropasc</title>
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
-    <h1>Ropasc. A Rock Paper Scissors game</h1>
-    <p>This program is run on your browser console. Open the console with chrome with command
-      <code>ctrl + shift + j</code>
-    </p>
+    <div class="main-container">
+      <header class="header">
+        <div class="logo">Ropasc</div>
+      </header>
 
-    <script src="main.js"></script>
+      <main class="main">
+        <div class="score-section">
+          <h2 class="section-name">Score</h2>
+          <div class="score-board">
+            <div class="score-item">
+              <div class="score-name">Computer</div>
+              <div class="score-value">0</div>
+            </div>
+            -
+            <div class="score-item">
+              <div class="score-name">User</div>
+              <div class="score-value">0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="selection-section">
+          <h2 class="section-name">Choices</h2>
+          <div class="selection-buttons" id="selectionButtons">
+            <button value="Rock">Rock</button>
+            <button value="Paper">Paper</button>
+            <button value="Scissors">Scissors</button>
+          </div>
+        </div>
+
+
+        <div class="log-section" id="logBoard">
+          <h2>Log</h2>
+          <ul>
+            <li>User win</li>
+            <li>Computer win</li>
+            <li>Tie</li>
+            <li>User win</li>
+            <li>Computer win</li>
+            <li>Tie</li>
+            <li>User win</li>
+            <li>Computer win</li>
+            <li>Tie</li>
+          </ul>
+
+        </div>
+      </main>
+      <footer class="footer">
+        <p>copyright &copy; <a href="#" target="_blank">Fathurrohman N</a>&nbsp;</p> <span id="yearFooter"></span>
+      </footer>
+
+
+      <script src="main.js"></script>
+    </div>
   </body>
 
 </html>
