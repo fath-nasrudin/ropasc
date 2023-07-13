@@ -114,6 +114,53 @@ const updateScore = (winner) => {
   }
 };
 
+const getPlayerScore = () => {
+  return Number(document.querySelector('#playerScoreValue').textContent);
+};
+const getComputerScore = () => {
+  return Number(document.querySelector('#computerScoreValue').textContent);
+};
+const isGameOver = () => {
+  return getPlayerScore() >= 5 || getComputerScore() >= 5 ? true : false;
+};
+
+const dissableChoices = () => {
+  const buttons = document.querySelectorAll('#selectionButtons > button');
+  Array.from(buttons).forEach((button) => {
+    button.disabled = true;
+  });
+};
+
+const addGameResultSectionUi = () => {
+  const scoreSection = document.querySelector('.score-section');
+
+  // check winner
+  let textContent = 'Congrats! You Win!';
+  if (getComputerScore() >= 5) textContent = 'You lose!';
+
+  const div = document.createElement('div');
+  div.id = 'resultSection';
+  div.classList.add('result-section');
+
+  const p = document.createElement('p');
+  p.textContent = textContent;
+
+  const button = document.createElement('button');
+  button.textContent = 'Play again';
+  button.addEventListener('click', () => {
+    location.reload();
+  });
+
+  div.append(p, button);
+
+  scoreSection.after(div);
+};
+
+const gameOver = () => {
+  dissableChoices();
+  addGameResultSectionUi();
+};
+
 // selection listener
 const buttons = document.querySelectorAll('#selectionButtons > button');
 Array.from(buttons).forEach((button) => {
@@ -126,6 +173,6 @@ Array.from(buttons).forEach((button) => {
     updateLog(textLog);
 
     updateScore(winner);
-    // check is the game over?
+    if (isGameOver()) gameOver();
   });
 });

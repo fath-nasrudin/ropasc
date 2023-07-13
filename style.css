@@ -31,6 +31,11 @@ button:active {
   background-color: #ff9d00;
 }
 
+button:disabled {
+  background-color: #ffc362;
+  cursor: not-allowed;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -102,4 +107,11 @@ button:active {
 .selection-buttons {
   display: flex;
   gap: 16px;
+}
+
+.result-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
 }
