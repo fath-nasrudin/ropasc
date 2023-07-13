@@ -60,7 +60,7 @@ const playRound = (userSelection, computerSelection) => {
 // update year display in footer
 document.querySelector('#yearFooter').textContent = new Date().getFullYear();
 
-const game = () => {
+const consoleController = () => {
   const ROUNDS = 5;
 
   let userScore = 0;
@@ -94,5 +94,3 @@ const game = () => {
     console.log('Draw. refresh to do rematch');
   }
 };
-
-game();
