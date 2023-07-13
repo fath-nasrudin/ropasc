@@ -102,6 +102,18 @@ const updateLog = (text) => {
   logList.appendChild(li);
 };
 
+updateScore = (winner) => {
+  if (winner === 'tie') return;
+
+  if (winner === 'computer') {
+    let computerScore = document.querySelector('#computerScoreValue');
+    computerScore.textContent = Number(computerScore.textContent) + 1;
+  } else if (winner === 'player') {
+    let playerScore = document.querySelector('#playerScoreValue');
+    playerScore.textContent = Number(playerScore.textContent) + 1;
+  }
+};
+
 // selection listener
 const buttons = document.querySelectorAll('#selectionButtons > button');
 Array.from(buttons).forEach((button) => {
@@ -113,7 +125,7 @@ Array.from(buttons).forEach((button) => {
     const textLog = generateRoundLog(userSelection, computerSelection, winner);
     updateLog(textLog);
 
-    // update score
+    updateScore(winner);
     // check is the game over?
   });
 });
