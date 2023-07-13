@@ -57,6 +57,9 @@ const playRound = (userSelection, computerSelection) => {
   return winner;
 };
 
+// update year display in footer
+document.querySelector('#yearFooter').textContent = new Date().getFullYear();
+
 const game = () => {
   const ROUNDS = 5;
 
