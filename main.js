@@ -95,6 +95,13 @@ const consoleController = () => {
   }
 };
 
+const updateLog = (text) => {
+  const logList = document.querySelector('#logList');
+  const li = document.createElement('li');
+  li.textContent = text;
+  logList.appendChild(li);
+};
+
 // selection listener
 const buttons = document.querySelectorAll('#selectionButtons > button');
 Array.from(buttons).forEach((button) => {
@@ -103,7 +110,9 @@ Array.from(buttons).forEach((button) => {
     const computerSelection = getComputerChoice();
     const winner = getWinner(userSelection, computerSelection);
 
-    // update log
+    const textLog = generateRoundLog(userSelection, computerSelection, winner);
+    updateLog(textLog);
+
     // update score
     // check is the game over?
   });
