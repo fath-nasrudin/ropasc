@@ -102,7 +102,7 @@ const updateLog = (text) => {
   logList.appendChild(li);
 };
 
-updateScore = (winner) => {
+const updateScore = (winner) => {
   if (winner === 'tie') return;
 
   if (winner === 'computer') {
